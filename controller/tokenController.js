@@ -11,7 +11,7 @@ const tokenChecker = async(req,res) => {
     try {
         const user = jwt.verify(token,process.env.JWT_SECRET);
         res.send({
-            userID:user.user_id,
+            user_id:user.user_id,
             username:user.username
         })
     } catch (error) {

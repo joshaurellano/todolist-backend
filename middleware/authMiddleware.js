@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 
 const authenticateToken = async (req, res, next) => {
     // const token = req.cookies.token;
-    const token = req.headers.authorization;
+    const token = req.headers.authorization || req.cookies.token;
     if(!token) {
         return res.status(401).json({
             error:'Login first'

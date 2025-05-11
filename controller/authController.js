@@ -51,14 +51,14 @@ const login = async(req,res) => {
             username:user.username
         }, process.env.JWT_SECRET,{expiresIn: process.env.JWT_ACCESS_EXPIRATION_TIME});
 
-        // res.cookie('token',token,{
-        //     maxAge:900000,
-        //     httpOnly:true
-        // })
+        res.cookie('token',token,{
+            maxAge:900000,
+            httpOnly:true
+        })
 
         return res.status(200).json({
             message:'Login successful',
-            token:token
+            // token:token
         });
        
     } catch (error){
